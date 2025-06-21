@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phrase-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phrase-app
+  template:
+    metadata:
+      labels:
+        app: phrase-app
+    spec:
+      containers:
+      - name: phrase-api
+        image: lovish1331/phrase-api:v1
+        ports:
+        - containerPort: 8081
